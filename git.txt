@@ -1,0 +1,11 @@
+1.    git clone https://github.com/buzzboys/ican.git
+2.    cd ican
+3.    dir /a
+4.    git remote -v (確認網址正確)
+5.    git status (看目前專案狀態)
+6.    git add "XXX"(成功)
+7.    git status -s (出現A代表成功)
+8.    git commit -m "message " (新增文字敘述)
+9.    git log ( 看過去commit紀錄)
+10.  git pull( 更新COMMIT)
+11 . git push (確認有GIT)
