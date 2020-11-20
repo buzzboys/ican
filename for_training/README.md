@@ -4,4 +4,5 @@
 3. 下載Metadata的Class Names (https://storage.googleapis.com/openimages/v5/class-descriptions-boxable.csv)
 4. pip install awscli
 5. 把.py檔和下載下來的csv檔放到一個新的資料夾
-6. 執行getDataFromOpenImages.py
+6. 更改getDataFromOpenImages.py裡面要下載的類別名稱
+7. 執行getDataFromOpenImages.py
