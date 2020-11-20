@@ -3,6 +3,8 @@ import subprocess
 import os
 
 runMode = "train"
+# 更改此處的類別名稱，可參照https://storage.googleapis.com/openimages/web/index.html
+# 或是下載下來的Class Names檔
 classes = ["Bottle"]
 
 with open('class-descriptions-boxable.csv', mode='r', encoding='UTF-8') as infile:
@@ -34,7 +36,7 @@ for ind in range(0, len(classes)):
         cnt = cnt + 1
         print("annotation count : " + str(cnt))
         lineParts = line.split(',')
-        subprocess.run([ 'aws', 's3', '--no-sign-request', '--only-show-errors', 'cp', 's3://open-images-dataset/'+runMode+'/'+lineParts[0]+".jpg", 'Bottles/'+lineParts[0]+".jpg"], shell=True)
+        subprocess.run([ 'aws', 's3', '--no-sign-request', '--only-show-errors', 'cp', 's3://open-images-dataset/'+runMode+'/'+lineParts[0]+".jpg", className+'/'+lineParts[0]+".jpg"], shell=True)
         with open(className + '_labels/%s.txt'%(lineParts[0]),'a') as f:
             f.write(' '.join([str(ind),str((float(lineParts[5]) + float(lineParts[4]))/2), str((float(lineParts[7]) + float(lineParts[6]))/2), str(float(lineParts[5])-float(lineParts[4])),str(float(lineParts[7])-float(lineParts[6]))])+'\n')
 
