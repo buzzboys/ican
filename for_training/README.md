@@ -2,5 +2,6 @@
 1. 進入Open Images Dataset V6 (https://storage.googleapis.com/openimages/web/download.html)
 2. 下載Boxes的Train (https://storage.googleapis.com/openimages/v6/oidv6-train-annotations-bbox.csv)
 3. 下載Metadata的Class Names (https://storage.googleapis.com/openimages/v5/class-descriptions-boxable.csv)
-4. pip install aswcli
-5. 執行getDataFromOpenImages.py
+4. pip install awscli
+5. 把.py檔和下載下來的csv檔放到一個新的資料夾
+6. 執行getDataFromOpenImages.py
