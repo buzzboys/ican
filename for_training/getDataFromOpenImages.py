@@ -3,6 +3,7 @@ import subprocess
 import os
 
 runMode = "train"
+# 這裡面改要下載的類別名，請參考 https://storage.googleapis.com/openimages/web/index.html
 classes = ["Bottle"]
 
 with open('class-descriptions-boxable.csv', mode='r', encoding='UTF-8') as infile:
