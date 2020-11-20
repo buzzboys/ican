@@ -3,18 +3,16 @@ import subprocess
 import os
 
 runMode = "train"
-# 這裡面改要下載的類別名，請參考 https://storage.googleapis.com/openimages/web/index.html
-# 或下載回來的Class Names檔
 classes = ["Bottle"]
 
 with open('class-descriptions-boxable.csv', mode='r', encoding='UTF-8') as infile:
     reader = csv.reader(infile)
     dict_list = {rows[1]:rows[0] for rows in reader}
 
-subprocess.run(['rmdir', '-rf', 'Bottles'])
+subprocess.run(['rmdir', '/S/Q', 'Bottles'])
 subprocess.run(['mkdir', 'Bottles'])
 
-subprocess.run(['rmdir', '-rf', 'labels'])
+subprocess.run(['rmdir', '/S/Q', 'labels'])
 subprocess.run(['mkdir', 'labels'])
 
 for ind in range(0, len(classes)):
@@ -22,7 +20,7 @@ for ind in range(0, len(classes)):
     className = classes[ind]
     print("Class " + str(ind) + " : " + className)
 
-    commandStr = "findstr " + dict_list[className][3:] + " " + runMode + "-annotations-bbox.csv"
+    commandStr = "findstr " + dict_list[className][3:] + " " + "oidv6-" + runMode + "-annotations-bbox.csv"
     print(commandStr)
     class_annotations = subprocess.run(commandStr.split(), stdout=subprocess.PIPE).stdout.decode('utf-8')
     class_annotations = class_annotations.splitlines()
