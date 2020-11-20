@@ -9,15 +9,16 @@ with open('class-descriptions-boxable.csv', mode='r', encoding='UTF-8') as infil
     reader = csv.reader(infile)
     dict_list = {rows[1]:rows[0] for rows in reader}
 
-subprocess.run(['rmdir', '/S/Q', 'Bottles'])
-subprocess.run(['mkdir', 'Bottles'])
-
-subprocess.run(['rmdir', '/S/Q', 'labels'])
-subprocess.run(['mkdir', 'labels'])
-
 for ind in range(0, len(classes)):
-    
+
     className = classes[ind]
+    
+    subprocess.run(['rmdir', '/S/Q', className])
+    subprocess.run(['mkdir', className])
+
+    subprocess.run(['rmdir', '/S/Q', className + '_labels'])
+    subprocess.run(['mkdir', className + '_labels'])
+
     print("Class " + str(ind) + " : " + className)
 
     commandStr = "findstr " + dict_list[className][3:] + " " + "oidv6-" + runMode + "-annotations-bbox.csv"
@@ -34,7 +35,7 @@ for ind in range(0, len(classes)):
         print("annotation count : " + str(cnt))
         lineParts = line.split(',')
         subprocess.run([ 'aws', 's3', '--no-sign-request', '--only-show-errors', 'cp', 's3://open-images-dataset/'+runMode+'/'+lineParts[0]+".jpg", 'Bottles/'+lineParts[0]+".jpg"])
-        with open('labels/%s.txt'%(lineParts[0]),'a') as f:
+        with open(className + '_labels/%s.txt'%(lineParts[0]),'a') as f:
             f.write(' '.join([str(ind),str((float(lineParts[5]) + float(lineParts[4]))/2), str((float(lineParts[7]) + float(lineParts[6]))/2), str(float(lineParts[5])-float(lineParts[4])),str(float(lineParts[7])-float(lineParts[6]))])+'\n')
 
 
