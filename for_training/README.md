@@ -8,7 +8,7 @@
 7. 執行getDataFromOpenImages.py
 
 ## 拆分訓練圖片和驗證圖片
-1. 執行splitTrainAndValid.py
-   `python splitTrainAndValid.py DIR_NAME`
-   或直接
+1. 執行splitTrainAndValid.py  
+   `python splitTrainAndValid.py DIR_NAME`  
+   或直接  
    `python splitTrainAndValid.py`
