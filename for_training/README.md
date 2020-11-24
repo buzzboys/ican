@@ -12,3 +12,9 @@
    `python splitTrainAndValid.py DIR_NAME`  
    或直接  
    `python splitTrainAndValid.py`
+
+## 變更txt檔的label ID
+1. 執行changeLabelIdOfTxt.py  
+   `python changeLabelIdOfTxt.py DIR_NAME`  
+   或直接  
+   `python changeLabelIdOfTxt.py`
