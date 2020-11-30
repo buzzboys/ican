@@ -1,0 +1,952 @@
+#cute1 {
+
+    box-sizing: border-box ;
+    --gray :  #faf0e6 ;
+    /* --lightGray : #c2c2c2 ; */
+    --green : #b9b9ff ;
+    --lightGreen : #d5ccf5ef ;
+    /* --shadow : #2a2d2733 ; */
+    --darkGreen : #611e6eee ;
+    --black : #010101ea ;
+    --duration-head: .64s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    --duration-body: .18s cubic-bezier(0.6, -0.28, 0.74, 0.05);
+    --duration-leg: .64s linear;
+    /* --duration-tail: .36s cubic-bezier(0.54, 0.03, 0, 0.96); */
+    /* --duration-shadow: .36s cubic-bezier(0.54, 0.03, 0, 0.96); */
+       
+
+}
+
+#cute1 *,
+#cute1 *::before,
+#cute1 *::after {
+
+    box-sizing: inherit ;
+}
+
+/* body {
+
+    margin: 0 ;
+    height: 100vh ; 
+    display: flex  ;
+    overflow: hidden ;
+    align-items: center  ;
+    justify-content: center ;
+    background-color: var(--gray) ;
+
+} */
+
+#cute2 * {
+
+    position: absolute ;
+
+}
+
+#cute2 *::before,
+#cute2 *::after {
+
+    content: "" ;
+    position: absolute ;
+}
+
+.chameleon {
+
+    width: 14em ;
+    height: 12em ;
+
+}
+
+.chameleon::after {
+
+    top: 90% ;
+    width: 12em ;
+    left: 3% ;
+    height: 0.5em ;
+    background-color: var(--lightGray) ;
+    animation: shadow var(--duration-shadow) infinite ;
+}
+
+.chameleon__head {
+
+    top: 19% ;
+    left: 50% ;
+    width: 6em ;
+    height: 6em ;
+    z-index: 100 ;
+    border-radius: 50%;
+    animation: head var(--duration-head) infinite ;
+
+}
+
+.chameleon__face {
+
+    width: 100% ;
+    height: 100% ;
+    border-radius: inherit ;
+    background-color: var(--green);
+
+}
+
+.chameleon::before,
+.chameleon__face::after {
+    
+    border-radius: 50% ;
+    animation: var(--duration-head) infinite ;
+    
+}
+
+.chameleon::before {
+
+    width: 4em ;
+    height: 4em ;
+    z-index: -100 ;
+    animation-name: eye-b ;
+    background-color: var(--lightGreen) ;
+
+}
+
+.chameleon__face::after {
+    
+    top: 2% ;
+    width: 4.5em ;
+    height: 4.5em ;
+    animation-name: eye-f ;
+    background-repeat: no-repeat;
+
+    background-image : 
+    radial-gradient(.5em .5em at center center , var(--gray) 37%, transparent 51%) ,
+    radial-gradient(1.8em 1.8em at center center , var(--black) 47%, transparent 51%) ,
+    radial-gradient(4em 4em at center center , var(--lightGreen) 49%, transparent 50%) ;
+
+    background-size :
+    1.5em 1.5em ,
+    3em 3em ,
+    4.5em 4.5em ;
+
+    background-position : 
+    -9% 34% ,
+    -53% 24% ,
+    center center ;
+
+}
+
+.chameleon__body { 
+
+    top: 18%;
+    left: 9.1%;
+    width: 10em;
+    height: 8em;
+    animation: shake var(--duration-body) infinite alternate;
+
+}
+
+.chameleon__tummy {
+
+    top: 54% ;
+    left: 31% ;
+    width: 6em ;
+    height: 3.3em ;
+    border-radius: 50% ;
+    background-color: var(--green) ;
+
+}
+
+.chameleon__tummy::before {
+
+    top: -1% ;
+    left: -5% ;
+    width: 2em ;
+    height: 2.6em ;
+    transform: rotate(13deg) ;
+    background-color: var(--green) ;
+    box-shadow: 1.4em -1.5em 0 0 var(--green), 2.7em -2.7em 0 0 var(--green) ;
+
+}
+
+/* .chameleon__tummy::after{
+
+    top: 2.4% ;
+    right: 59% ;
+    z-index: -50 ;
+    width: 9.6em ;
+    height: 4.3em ;
+    transform: rotate(-12deg) ;
+    border-radius: 0 0 50% 50% ;
+    border: 0.3125em solid var(--gray) ;
+
+} */
+
+.chameleon__tail {
+
+    top: -1% ;
+    right: 59% ;
+    z-index: -50 ;
+    width: 9.6em ;
+    height: 4.2em ;
+    overflow: hidden ;
+    transform: rotate(-12deg) ;
+    border-radius: 0 0 50% 50% ;
+    
+}
+
+.chameleon__tail::before {
+    
+    left: 30% ;
+    top: 47.4% ;
+    width: 100% ;
+    height: 77% ;
+    background-color: var(--green) ;
+    
+    
+}
+
+.chameleon__tail::after {
+    
+    width: 89% ;
+    height: 83% ;
+    border-radius: 50% ;
+    background-color: var(--gray) ;
+    transform: rotate(-18deg) translate3d(-12%, 0% ,0) ;
+    animation: tail var(--duration-tail) infinite ;
+    
+}
+
+.chameleon__leg-front {
+
+    top: 66% ;
+    left: 60% ;
+    width: 4em ;
+    height: 3em ;
+    z-index: -5 ;
+
+}
+
+.chameleon__leg-front::before,
+.chameleon__leg-front::after {
+
+    width: 1.2em ;
+    height: 4em ;
+    background-repeat: no-repeat ;
+    animation: var(--duration-leg) infinite ;
+
+}
+
+.chameleon__leg-front::before {
+
+    animation-name: leg-2 ;
+
+}
+
+.chameleon__leg-front::after {
+
+    animation-name: leg-1 ;
+
+}
+
+.chameleon__leg-back {
+
+    top: 66% ;
+    left: 40% ;
+    z-index: -5 ;
+    height: 3em ;
+    width: 2.5em ;
+
+}
+
+.chameleon__leg-back::before,
+.chameleon__leg-back::after {
+    
+    width: 1.2em ;
+    height: 2.2em ;
+    animation: var(--duration-leg) infinite ;
+
+}
+
+.chameleon__leg-back::before {
+    
+    animation-name: leg-4 ;
+    background-color: var(--darkGreen) ;
+
+}
+
+.chameleon__leg-back::after {
+
+    animation-name: leg-3 ;
+    background-color: var(--green) ;
+
+}
+
+@keyframes head {
+
+
+    0%, 100% {
+
+        width: 5.85em ;
+        box-shadow: unset ;
+        transform: translate3d(21% , 1%, 0) ;
+
+    }
+ 
+    5%{
+
+        transform: translate3d(27% , 5%, 0) ;
+
+    }
+
+    10%{
+        
+        transform: translate3d(14% , 2%, 0) ;
+        box-shadow: -6px 6px 2px -6px var(--shadow) ;
+
+    }
+
+    17%{
+
+        width: 5.9em ;
+        transform: translate3d(7% , -1%, 0) ;
+        box-shadow: -12px 11px 2px -9px var(--shadow) ;
+        
+    }
+
+    25%{
+
+        width: 5.9em ;
+        transform: translate3d(2% , -2%, 0) ;
+        box-shadow: -11px 13px 2px -9px var(--shadow) ;
+        
+    }
+
+    30%, 40%{
+
+        width: 5.9em ;
+        transform: translate3d(0 , -2%, 0) ;
+        box-shadow: -11px 13px 2px -9px var(--shadow) ;
+
+    }
+
+    50%{
+
+        width: 5.9em ;
+        transform: translate3d(6% , 0%, 0) ;
+        box-shadow: -11px 13px 2px -9px var(--shadow) ;
+
+    }
+   
+    60%{
+
+        width: 5.9em ;
+        box-shadow: unset ;
+        transform: translate3d(15% , -1%, 0) ;
+
+    }
+  
+    75%{
+
+        width: 5.9em ;
+        box-shadow: unset ;
+        transform: translate3d(14% , -3%, 0) ;
+
+    }
+
+    80%, 90%{
+
+        width: 5.9em ;
+        box-shadow: unset ;
+        transform: translate3d(14% , -2%, 0) ;
+
+    }
+
+}
+
+@keyframes eye-b {
+
+
+    0%, 100%{
+
+        transform: translate3d(241% , 50%, 0) ;
+
+    }
+  
+    5%{
+        
+        transform: translate3d(277% , 86%, 0) ;
+
+    }
+ 
+    10%{
+
+        transform: translate3d(260% , 84%, 0) ;
+
+    }
+
+    17%{
+
+        transform: translate3d(242% , 64%, 0) ;
+
+    }
+
+    25%{
+
+        transform: translate3d(234% , 52%, 0) ;
+
+    }
+
+    30%{
+
+        transform: translate3d(231% , 45%, 0) ;
+        
+    }
+
+    40%{
+
+        transform: translate3d(233% , 44%, 0) ;
+
+    }
+
+    50%{
+
+        transform: translate3d(238% , 48%, 0) ;
+
+    }
+ 
+    60%{
+
+        transform: translate3d(205% , 56%, 0) ;
+
+    }
+
+    75%{
+
+        transform: translate3d(215% , 52%, 0) ;
+
+    } 
+ 
+    80%{
+        
+        transform: translate3d(189% , 48%, 0) ;
+
+    } 
+ 
+    85%{
+
+        transform: translate3d(181% , 46%, 0) ;
+
+    } 
+
+    90%{
+
+        transform: translate3d(198% , 53%, 0) ;
+
+    } 
+}
+
+@keyframes eye-f {
+
+    0%, 100%{
+
+        background-position : 
+        40% 22% ,
+        55% 23% ,
+        center center ;
+        transform: translate3d(27% , -18%, 0) ;
+
+    }
+ 
+    5%{
+
+        background-position : 
+        16% 38% ,
+        19% 41% ,
+        center center ;
+        transform: translate3d(2% , -13%, 0) ;
+
+    }
+
+    10%{
+
+        background-position : 
+        8% 38% ,
+        6% 36% ,
+        center center ;
+        transform: translate3d(2% , -13%, 0) ;
+
+    }
+
+    17%{
+
+        background-position : 
+        -1% 38% ,
+        -14% 40% ,
+        center center ;
+        transform: translate3d(2% , -13%, 0) ; 
+
+    }
+ 
+    25%{
+
+        background-position : 
+        -4% 36% ,
+        -17% 36% ,
+        center center ;
+        transform: translate3d(-8% , -3%, 0) ;
+        
+    }
+
+    30%, 40%{
+
+        background-position : 
+        -5% 36% ,
+        -19% 32% ,
+        center center ;
+        transform: translate3d(-14% , 4%, 0) ;
+        
+    }
+
+    50%{
+
+        background-position : 
+        -5% 37% ,
+        -21% 32% ,
+        center center ;
+        transform: translate3d(-18% , 6%, 0) ;
+
+    }
+
+    60%{
+        
+        background-position : 
+        45% 21% ,
+        74% 14% ,
+        center center ;
+        transform: translate3d(1% , -13%, 0) ;
+
+    }
+
+    75%{
+
+        background-position : 
+        59% 11% ,
+        93% 0% ,
+        center center ;
+        transform: translate3d(12% , -14%, 0) ;
+
+    } 
+ 
+    80%{
+
+        background-position : 
+        72% 8% ,
+        112% -4% ,
+        center center ;
+        transform: translate3d(21% , -19%, 0) ;
+
+    } 
+
+    85%{
+
+        background-position : 
+        66% 8% ,
+        102% 1% ,
+        center center ;
+        transform: translate3d(27% , -18%, 0) ;
+
+    }
+
+    90%{
+
+        background-position : 
+        57% 14% ,
+        84% 11% ,
+        center center ;
+        transform: translate3d(31% , -19%, 0) ;
+
+    }
+
+}
+
+@keyframes tail {
+
+    0%, 100%{
+        
+        transform: rotate(-18deg) translate3d(-12%, 0% ,0) ;
+
+    }
+
+    50%{
+
+        transform: rotate(-11deg) translate3d(-13%, -5% ,0) ;
+
+    }
+
+}
+
+@keyframes shake {
+
+    100%{
+
+        transform: translate3d(0, 1%, 0) ;
+
+    }
+
+}
+
+@keyframes leg-1 {
+
+
+    0%, 100%{
+
+        width: 1.23em;
+        height: 2.6em;
+        border-radius: 0 45% 0 0 ;
+        transform: rotate(27deg) translate3d(39%, 14% ,0) ;
+        background-image: linear-gradient(205deg, var(--green) 77% , transparent 80%) ;
+
+    }
+ 
+    5%{
+
+        width: 1.5em;
+        height: 3em;
+        border-radius: 0 100% 100% 0 / 0 50% 50% 0 ;
+        transform: rotate(0deg) translate3d(21%, 0% ,0) ;
+        background-image: linear-gradient(180deg, var(--green) 100% , transparent 80%) ;
+
+
+    }
+ 
+    10%{
+
+        width: 1.5em;
+        height: 3em;
+        border-radius: 0 100% 100% 0 / 0 50% 50% 0 ;
+        transform: rotate(0deg) translate3d(38%, 0% ,0) ;
+        background-image: linear-gradient(231deg, var(--green) 77% , transparent 80%) ;
+
+    }
+ 
+    18%{
+
+        width: 1.5em;
+        height: 3em;
+        border-radius: 0 100% 100% 0 / 0 50% 50% 0 ;
+        transform: rotate(0deg) translate3d(56%, -7% ,0) ;
+        background-image: linear-gradient(222deg, var(--green) 77% , transparent 80%) ;
+
+    }
+    
+    25%, 40%{
+
+        width: 1.3em;
+        height: 2.3em;
+        border-radius: 0 60% 0 0 ;
+        transform: rotate(25deg) translate3d(91%, -2% ,0) ;
+        background-image: linear-gradient(180deg, var(--green) 77% , transparent 80%) ;
+
+    }
+
+    
+    50%{
+
+        width: 1.3em;
+        height: 2.18em;
+        border-radius: 0 48% 20% 0 ;
+        transform: rotate(0deg) translate3d(88%, 28% ,0);
+        background-image: linear-gradient(201deg, var(--green) 79% , transparent 80%) ;
+
+    }
+  
+    65%, 85%{
+
+        width: 1.3em;
+        height: 3em;
+        border-radius: 0 0 0 0 ;
+        transform: rotate(0deg) translate3d(9%, 18% ,0) skewX(-8deg);
+        background-image: linear-gradient(180deg,  var(--green) 77% , transparent 80%) ;
+
+    }
+  
+    95%{
+
+        width: 1.3em;
+        height: 3em;
+        border-radius: 0 0 0 0 ;
+        transform: rotate(17deg) translate3d(21%, 12% ,0) skewX(1deg) ;
+        background-image: linear-gradient(180deg,  var(--green) 77% , transparent 80%) ;
+
+    }
+
+}
+
+
+@keyframes leg-2 {
+
+    0%, 100%{
+
+        height: 3em;
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(-5deg) translate3d(132%, 4% ,0) ;
+        background-image: linear-gradient(185deg, var(--darkGreen) 77% , transparent 80%) ;
+
+    }
+
+  
+    5%{
+
+        height: 2.7em;
+        width: 1.35em;
+        border-radius: 0 86% 0 0 ;
+        transform: rotate(0deg) translate3d(127%, 9% ,0) ;
+        background-image: linear-gradient(180deg, var(--darkGreen) 100% , transparent 0%) ;
+
+
+    }
+ 
+    10%{
+
+        height: 2.7em;
+        width: 1.3em;
+        border-radius: 0 86% 0 0 ;
+        transform: rotate(0deg) translate3d(86%, 10% ,0) ;
+        background-image: linear-gradient(180deg, var(--darkGreen) 100% , transparent 0%) ;
+
+    }
+
+    
+    18%{
+
+        height: 2.7em;
+        width: 1.3em;
+        border-radius: 0 86% 0 0 ;
+        transform: rotate(0deg) translate3d(49%, 8% ,0) ;
+        background-image: linear-gradient(180deg, var(--darkGreen) 100% , transparent 0%) ;
+
+    }
+   
+
+    25%, 45%{
+
+        height: 2.7em;
+        width: 1.3em;
+        border-radius: 0 86% 0 0 ;
+        transform: rotate(0deg) translate3d(30%, 8% ,0) ;
+        background-image: linear-gradient(180deg, var(--darkGreen) 100% , transparent 0%) ;
+
+    }
+
+    50%{
+
+        height: 2.7em;
+        width: 1.3em;
+        border-radius: 0 86% 0 0 ;
+        transform: rotate(10deg) translate3d(26%, -1% ,0) ;
+        background-image: linear-gradient(180deg, var(--darkGreen) 100% , transparent 0%) ;
+
+    }
+ 
+    60%{
+
+        height: 1.6em;
+        width: 1.3em;
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(19deg) translate3d(109%, -8% ,0) ;
+        background-image: linear-gradient(200deg, var(--darkGreen) 77% , transparent 80%) ;
+
+
+    }
+
+    70%{
+
+        height: 2em;
+        width: 1.3em;
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(-2deg) translate3d(122%, 10% ,0) ;
+        background-image: linear-gradient(190deg, var(--darkGreen) 77% , transparent 80%) ;
+
+    }
+ 
+    75%, 82%{
+
+        height: 2em;
+        width: 1.25m;
+        border-radius: 0 70% 0% 0 ;
+        transform: rotate(-19deg) translate3d(120%, 30% ,0) ;
+        background-image: linear-gradient(200deg, var(--darkGreen) 77% , transparent 80%) ;
+
+    }
+ 
+    95%{
+
+        height: 2.2em;
+        width: 1.25m;
+        border-radius: 0 70% 20% 0 ;
+        transform: rotate(-19deg) translate3d(115%, 28% ,0) ;
+        background-image: linear-gradient(200deg, var(--darkGreen) 77% , transparent 80%) ;
+
+    }
+
+}
+
+
+@keyframes leg-3 {
+
+    0%, 100%{
+
+        transform: rotate(-5deg) translate3d(95%, 29% ,0) ;
+
+    }
+ 
+    5%{
+
+        transform: rotate(0deg) translate3d(139%, 31% ,0) ;
+
+    }
+ 
+    10%{
+
+        transform: rotate(0deg) translate3d(93%, 32% ,0) ;
+
+    }
+ 
+    18%{
+
+        transform: rotate(0deg) translate3d(50%, 32% ,0) ;
+
+    }
+
+    25%, 35%{
+
+        transform: rotate(0deg) translate3d(30%, 32% ,0) ;
+
+    }
+
+    40%{
+
+        transform: rotate(7deg) translate3d(36%, 22% ,0) ;
+
+    }
+
+    50%{
+
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(13deg) translate3d(98%, 3% ,0) ;
+
+    }
+
+    60%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(-18deg) translate3d(54%, 26% ,0) ;
+
+    }
+ 
+    65%, 80%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(-22deg) translate3d(49%, 28% ,0) ;
+
+    }
+
+    90%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(-13deg) translate3d(75%, 29% ,0) ;
+
+    }
+
+}
+
+@keyframes leg-4 {
+
+    0%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(48deg) translate3d(94%, -7% ,0) ;
+
+    }
+ 
+    5%{
+
+        border-radius: 0 20% 50% 0 ;
+        transform: rotate(0deg) translate3d(41%, 36% ,0) ;
+
+    }
+
+    10%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(-28deg) translate3d(33%, 36% ,0) ;
+
+    }
+
+    18%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(26deg) translate3d(119%, -10% ,0) ;
+
+    }
+
+    25%, 35%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(26deg) translate3d(135%, -19% ,0) ;
+
+    }
+
+    40%{
+
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(26deg) translate3d(144%, -19% ,0) ;
+
+    }
+
+    50%{
+
+        border-radius: 0 100% 0 0 ;
+        transform: rotate(17deg) translate3d(146%, -3% ,0) ;
+
+    }
+
+    60%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(0deg) translate3d(36%, 31% ,0) ;
+
+    }
+
+    65%, 80%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(0deg) translate3d(26%, 31% ,0) ;
+
+    }
+
+    90%{
+
+        border-radius: 0 0 0 0 ;
+        transform: rotate(12deg) translate3d(44%, 26% ,0) ;
+
+    }
+
+}
+
+@keyframes shadow {
+
+    0%, 100%{
+        transform: scaleX(.93);
+    }
+
+    50%{
+        transform: scaleX(1.19);
+    }
+
+} 
+
+@media screen and (max-width: 36em) {
+
+    .chameleon{
+
+        transform: scale(.8) ;
+
+    }
+
+}

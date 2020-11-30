@@ -1,0 +1,23 @@
+#loadingPage {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1000;
+    background-color: #000000;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+#loading-image {
+    position: absolute;
+    z-index: 100;
+}

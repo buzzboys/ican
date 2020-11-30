@@ -1,0 +1,33 @@
+body {
+    background-color: #D1EDE1;
+}
+
+
+h1 {
+    text-align: center;
+    color: #028C6A;
+}
+
+#div1 {
+    text-align: center;
+    
+    
+}
+.form1{
+    color: #474747;
+    width:auto;
+    margin: 0 auto;
+    
+}
+
+
+fieldset {
+    text-align: left;
+
+}
+
+.gps{
+    width:400px;
+    float:left;
+}
+
