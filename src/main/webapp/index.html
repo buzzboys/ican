@@ -48,10 +48,10 @@
 	</div>
 
 	<div class="form">
-		<form method="post" action="/ican/GetTrashCarRecord">
+		<form method="post" action="./GetTrashCarRecord">
 			<input class="button" type="submit" value="設定" />
 		</form>
-		<form method="post" action="/ican/Listing">
+		<form method="post" action="./Listing">
 			<input class="button" type="submit" value="過去紀錄" />
 		</form>
 	</div>
@@ -86,50 +86,37 @@
         </h6>    
     </footer>
 	<script>
+		var ws = new WebSocket()
 		var socket = io.connect();
-		socket.on('pi', function(data) {
-			console.log(data.msg)
-			if (data.msg == 50) {
-				$("#water1").addClass("water2");
-				$("#water1").removeClass("water3");
-			} else if (data.msg == 80) {
-				$("#water1").removeClass("water2");
-				$("#water1").addClass("water3");
+        socket.on('pi', function (data) {
+            console.log(data.msg)
+            if (data.msg == 50) {
+                $("#water1").addClass("water2");
+                $("#water1").removeClass("water3");
+            } else if (data.msg == 80) {
+                $("#water1").removeClass("water2");
+                $("#water1").addClass("water3");
 
-			} else if (data.msg == 0) {
-				$("#water1").removeClass("water3");
-				$("#water1").removeClass("water2");
-			}
-			console.log(data.msgr)
-			if (data.msgr == 50) {
-				$("#water1").addClass("water2");
-				$("#water1").removeClass("water3");
-			} else if (data.msgr == 80) {
-				$("#water1").removeClass("water2");
-				$("#water1").addClass("water3");
+            } else if (data.msg == 0) {
+                $("#water1").removeClass("water3");
+                $("#water1").removeClass("water2");
+            }
+        })
+        socket.on('pir', function (data) {
+            console.log(data.msgr)
+            if (data.msgr == 50) {
+                $("#water2").addClass("water2");
+                $("#water2").removeClass("water3");
+            } else if (data.msgr == 80) {
+                $("#water2").removeClass("water2");
+                $("#water2").addClass("water3");
 
-			} else if (data.msgr == 0) {
-				$("#water1").removeClass("water3");
-				$("#water1").removeClass("water2");
-			}
-		})
+            } else if (data.msgr == 0) {
+                $("#water2").removeClass("water3");
+                $("#water2").removeClass("water2");
+            }
+        })
 
-		//	var clickcount1 = 1;
-		//	$("#water1").click(function() {
-		//		if (clickcount1 % 3 == 1) {
-		//			$("#water1").addClass("water2");
-		//			clickcount1 += 1;
-		//
-		//		} else if (clickcount1 % 3 == 2) {
-		//		$("#water1").removeClass("water2");
-		//	$("#water1").addClass("water3");
-		//		clickcount1 += 1;
-		//} else {
-		//	$("#water1").removeClass("water3");
-		//clickcount1 += 1;
-		//}
-
-		//		});
 
 		var clickcount2 = 1;
 		$("#water2").click(function() {
