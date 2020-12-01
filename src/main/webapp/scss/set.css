@@ -1,11 +1,13 @@
 body {
-    background-color: #D1EDE1;
+	background-image: linear-gradient(to bottom, #fafff0 0%, #faf0e6 100%);
+	background-attachment: fixed; 
 }
 
 
 h1 {
     text-align: center;
-    color: #028C6A;
+ 	color: #01814A;
+ 	text-shadow: 1px 2px 0.1em #8C8C00;
 }
 
 #div1 {
@@ -23,11 +25,41 @@ h1 {
 
 fieldset {
     text-align: left;
-
+    position:relative;
+    padding-bottom:37px;
+    border:3px inset #FFE6D9;
+    border-radius:20px;
+  
 }
 
+legend{
+   color:#949449;
+   font-size:22px;
+   font-weight: bold;
+      	
+}
 .gps{
     width:400px;
     float:left;
 }
 
+.setyessubmit{
+	 position:absolute;
+	 bottom:0px;
+	 left:47.9%;
+}
+
+.labelt{
+	font-size: 22px;
+	font-weight: bold;
+	font-family: DFTsaiStd;
+	line-height:1.5;
+	color:#949449;
+}
+
+.labels{
+	font-size: 18px;
+	font-family: DFTsaiStd;
+	line-height:1.5;
+	color:	#743A3A;
+}

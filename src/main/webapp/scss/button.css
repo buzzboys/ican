@@ -14,11 +14,32 @@
 
 .button {
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 24px;
     color: #f8fce4;
+    font-family: DFTsaiStd;
     border-radius: 5px;
     border: solid 1px #006030;
     background-color: #006030;
     box-shadow: 2px 0px 2px #019858;
 
+}
+
+
+.fbutton {
+    color:  #862d2d;
+    font-size:20px;
+    font-weight: bold;
+    border-radius: 5px;
+    font-family: DFTsaiStd;
+    border: solid 1px #d8b81f;
+    background-color:	#caac23;
+    box-shadow: 2px 1px 2px 	#8C8C00;
+    margin:10px;
+
+}
+
+.sidebt{
+	font-family: DFTsaiStd;
+	font-size:20px;
+	text-shadow: #A3D1D1 2px 2px;
 }

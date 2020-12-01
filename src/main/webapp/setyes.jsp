@@ -8,8 +8,12 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/scss/set.css">
-    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="/scss/set780.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/ican/Ican/scss/loadingpage.css">
+    <link rel="stylesheet" href="/ican/Ican/scss/set.css">
+    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="/ican/Ican/scss/set780.css" />
+    <link rel="stylesheet" href="/ican/Ican/scss/button.css">
     <title>設定</title>
     <style>
 
@@ -17,6 +21,7 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
 </head>
 
 <body>
+<div id="loadingPage"><img id="loading-image" src="/ican/Ican/pic/giphy.gif" alt="Loading..." /></div>
     <div id="div1">
         <h1>設定</h1>
         <form class="form1" method="post" action="/ican/GetCarsToDB">
@@ -26,37 +31,56 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
                  
       
                 <label for="GPS"></label>
-                <input type="button" onclick="getLocation()" value="查詢當前位置" >
+                <input type="button" class="fbutton" onclick="getLocation()" value="查詢當前位置" >
                 <span id="showPosition"></span><br>
+                <div>
                 <iframe id="gmframe" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=25.033934,121.543409"></iframe><br>
                     <br>
-                <label for="gt">垃圾車選擇:</label><br>
+                </div>
+                <label for="gt" class="labelt">垃圾車選擇:</label><br>
+                        
+                <div class="gps">
                 <input type="radio" id="gt1" name="gt" value="1">
-                <label for="male">gt1</label>
+                <label for="male" id="lgt1" class="labels">預計抵達時間:<span id="pgt1"></span></label>
                 <iframe id="gt1frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=25.033934,121.543409"></iframe>
+                </div>
                      
+                <div class="gps">
                 <input type="radio" id="gt2" name="gt" value="2">
-                <label for="female">gt2</label>
+                <label for="female" id="lgt2" class="labels">預計抵達時間:<span id="pgt2"></span></label>
                 <iframe id="gt2frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=25.033934,121.543409"></iframe>
+                </div>
+                
+                <div class="gps">
                 <input type="radio" id="gt3" name="gt" value="3">
-                <label for="other">gt3</label>
+                <label for="other" id="lgt3" class="labels">預計抵達時間:<span id="pgt3"></span></label>
                 <iframe id="gt3frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=25.033934,121.543409"></iframe>
- 				<input type="submit"  value="設定完成">           
+                </div>
+                <div class="setyessubmit">
+ 				<input type="submit" class="fbutton"   value="設定完成">
+ 				</div>           
             </fieldset>
             <input type="hidden" name="lat" id="lat">
             <input type="hidden" name="lng" id="lng"> 
             
             
         </form>
-        <a href="/index.html"><button>回首頁</button></a><br>
+        <a href="/ican/Ican/index.html" ><button class="button" >回首頁</button></a><br>
     </div>
 
 
     <script>
+    
+    window.addEventListener("load" ,function () {
+        $('#loadingPage').hide();
+        $('#loading-image').hide();
+        console.log("load")
+    });    
+    
     	var datas=null;   	
         var map, marker, lat, lng;
         function getLocation() {//取得 經緯度
@@ -99,7 +123,25 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
               	document.querySelector("#gt1frame").src = "https://maps.google.com/?output=embed&q=" + data[0]['Lat']  + "," +data[0]['Lng'] ;
               	document.querySelector("#gt2frame").src = "https://maps.google.com/?output=embed&q=" + data[1]['Lat']  + "," +data[1]['Lng'] ;
               	document.querySelector("#gt3frame").src = "https://maps.google.com/?output=embed&q=" + data[2]['Lat']  + "," +data[2]['Lng'] ;
-				form = document.querySelector("form");
+              	
+              	var time1 = datas[0]['CarTimeStart'];
+              	var time2 = datas[1]['CarTimeStart'];
+              	var time3 = datas[2]['CarTimeStart'];
+              	var b = ":";
+              	var position = 2;
+              	var output1 = [time1.slice(0, position), b, time1.slice(position)].join('');
+              	console.log(output1);
+              	var output2 = [time2.slice(0, position), b, time2.slice(position)].join('');
+              	console.log(output2);
+              	var output3 = [time3.slice(0, position), b, time3.slice(position)].join('');
+              	console.log(output3);
+              	
+              	document.querySelector("#pgt1").innerHTML = output1;
+              	document.querySelector("#pgt2").innerHTML = output2;
+              	document.querySelector("#pgt3").innerHTML = output3;
+              	
+              	
+              	form = document.querySelector("form");
               	for (n in datas){
               		for (par in datas[n]){
               			par_name = par + "" + (Number(n)+1)

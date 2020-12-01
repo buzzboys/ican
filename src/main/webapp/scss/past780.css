@@ -3,7 +3,12 @@
   height: 80px;
   position: relative;
   padding: 0;
-  
+  -webkit-transition: all 0s;
+  transition: all 0s; 
+}
+.asideMenu.active {
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
 }
 
 .asideMenu .title {
@@ -45,17 +50,17 @@ table{
 }
 
 #mychart2{
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
 
 }
 #mychart3{
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
 
 }
 #mychart4{
-  height: 400px;
-  width: 300px;
+  height: 300px;
+  width: 400px;
 
 }

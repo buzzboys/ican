@@ -17,22 +17,22 @@ body {
 }
 
 
-        .coitem {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+.coitem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
         
-        .cover {
-            width: 350px;
-            border: solid 2px #9ff19fda;
-            border-radius: 1px;
-            border-left: 5px soli #9ff19fda;
-            border-right: 5px solid #9ff19fda;
-            border-bottom: 5px solid #8fd48fda;
-            border-top: 5px solid #8cd48cda;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
+.cover {
+    width: 350px;
+    border: solid 2px #9ff19fda;
+    border-radius: 1px;
+    border-left: 5px soli #9ff19fda;
+    border-right: 5px solid #9ff19fda;
+    border-bottom: 5px solid #8fd48fda;
+    border-top: 5px solid #8cd48cda;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
             
         }
 

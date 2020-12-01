@@ -12,7 +12,7 @@
 	crossorigin="anonymous"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
-<script src="/ican/Ican/js/onload.js"></script>
+<link rel="stylesheet" href="/ican/Ican/scss/button.css">
 <link rel="stylesheet" href="/ican/Ican/scss/past.css">
 <link rel="stylesheet" media="screen and (max-width: 780px)"
 	href="/ican/Ican/scss/past780.css" />
@@ -34,16 +34,16 @@
 		<div class="list">
 			<dl class="optionTitle">
 				<dt>
-					<p id="pastbt">過去紀錄</p>
+					<p id="pastbt" class="sidebt">過去紀錄</p>
 				</dt>
 				<dt>
-					<p id="chart1bt">圖表1</p>
+					<p id="chart1bt" class="sidebt">圖表1</p>
 				</dt>
 				<dt>
-					<p id="chart2bt">圖表2</p>
+					<p id="chart2bt" class="sidebt">圖表2</p>
 				</dt>
 				<dt>
-					<p id="chart3bt">圖表3</p>
+					<p id="chart3bt" class="sidebt">圖表3</p>
 				</dt>
 			</dl>
 		</div>
@@ -92,6 +92,12 @@
 	<span id=”info_jb51_net”></span>
 
 	<script>
+    window.addEventListener("load" ,function () {
+        $('#loadingPage').hide();
+        $('#loading-image').hide();
+        console.log("load")
+    });    
+	
 	$(function() {
 		$(".btn").click(function() {
 			$(".asideMenu").toggleClass("active");
@@ -99,14 +105,6 @@
 		});
 	});
 	
-    $(window).resize(function() {
-        var wdth=$(window).width();
-        if(width<=780){
-    		$("#chart1").width();
-    
-        }
-        
-    });
 
 	$('#pastbt').click(function() {
 		$("#mychart1").css("display", "");

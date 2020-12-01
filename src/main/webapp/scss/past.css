@@ -6,7 +6,7 @@
 body {
   /*background-color: #D1EDE1;*/
   background-image: linear-gradient(to bottom, #fafff0 0%, #faf0e6 100%);
-background-attachment: fixed; 
+	background-attachment: fixed; 
   overflow: hidden;
   /* background-color: #7BC5A1;
   background-color: #028C6A;
@@ -16,8 +16,11 @@ background-attachment: fixed;
 
 h1 {
   text-align: center;
-  color: #82D900;
-  text-shadow: 2px 3px 0.1em #796400 ;
+  color: #01814A;
+  text-shadow: 1px 2px 0.1em #8C8C00;
+  /*color: #548C00;
+  text-shadow: 1px 3px 0.1em #A5A552;
+*/
 }
 
 #div1 {
@@ -149,14 +152,14 @@ th{
 }
 dt{
   cursor: pointer;
-  width:65px;
+   width:80px;
 }
 
 .asideMenu .list .optionTitle {
   color: #007979;
   display: block;
   padding: 20px;
-  padding-left: 95px ;
+  padding-left: 90px ;
   line-height: 1.5;
 }
 

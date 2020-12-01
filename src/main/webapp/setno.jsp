@@ -8,8 +8,12 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/scss/set.css">
-    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="/scss/set780.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/ican/Ican/scss/loadingpage.css">    
+    <link rel="stylesheet" href="/ican/Ican/scss/set.css">
+    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="/ican/Ican/scss/set780.css" />
+    <link rel="stylesheet" href="/ican/Ican/scss/button.css">
     <title>設定</title>
     <style>
 
@@ -17,6 +21,7 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
 </head>
 
 <body>
+<div id="loadingPage"><img id="loading-image" src="/ican/Ican/pic/giphy.gif" alt="Loading..." /></div>
     <div id="div1">
         <h1>設定</h1>
         <form class="form1" method="post" action="/ican/GetCarsToDB">
@@ -25,8 +30,9 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
                 <%TrashCarRecordBean trashcarrecord=(TrashCarRecordBean)request.getAttribute("trashcarrecord");%>
       
                 <label for="GPS"></label>
-                <input type="button" onclick="getLocation()" value="查詢當前位置" >
+                <input type="button" onclick="getLocation()" class="fbutton" value="查詢當前位置" >
                 <span id="showPosition"></span><br>
+                
 				<div>
                 <iframe id="gmframe" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getUserlat()%>,<%=trashcarrecord.getUserlng()%>"></iframe><br>
@@ -34,10 +40,16 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
                 <input type="hidden" name="lat" value="<%=trashcarrecord.getUserlat()%>">
                	<input type="hidden" name="lng" value="<%=trashcarrecord.getUserlng()%>">    
                 </div>
-                <label for="gt">垃圾車選擇:</label><br>
+                
+                <label for="gt"  class="labelt">垃圾車選擇:</label><br>
+                <div class="gps">
                 <input type="radio" id="gt1" name="gt" value="1">
-                <label for="male">gt1</label>
-                <div>
+                <%
+					StringBuffer time1 = new StringBuffer(trashcarrecord.getTime1());
+					time1.insert(2, ':');
+				%>
+                
+                <label for="gt1"  class="labels">預計抵達時間:<%=time1%></label>
                 <iframe id="gt1frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getRelat1()%>,<%=trashcarrecord.getRelng1()%>"></iframe> 
                	<br>
@@ -45,40 +57,60 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
                	<input type="hidden" name="Lng1" value="<%=trashcarrecord.getRelng1()%>">
                	<input type="hidden" name="CarTimeStart1" value="<%=trashcarrecord.getTime1()%>">
                	
-              	  垃圾車預計抵達時間:<%=trashcarrecord.getTime1() %>
+              <!--  垃圾車預計抵達時間:<%--<%=trashcarrecord.getTime1() %>--%> -->	 
                 </div>
+                <div class="gps">
                 <input type="radio" id="gt2" name="gt" value="2">
-                <label for="female">gt2</label>
-                <div>
+                <%
+					StringBuffer time2 = new StringBuffer(trashcarrecord.getTime2());
+					time2.insert(2, ':');
+				%>
+                <label for="gt2"  class="labels">預計抵達時間:<%=time2%></label>
                 <iframe id="gt2frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getRelat2()%>,<%=trashcarrecord.getRelng2()%>"></iframe>
                 <br>
                 <input type="hidden" name="Lat2" value="<%=trashcarrecord.getRelat2()%>">
                	<input type="hidden" name="Lng2" value="<%=trashcarrecord.getRelng2()%>">
                	<input type="hidden" name="CarTimeStart2" value="<%=trashcarrecord.getTime2()%>">
-				  垃圾車預計抵達時間:<%=trashcarrecord.getTime2() %>         
+				  <!--  垃圾車預計抵達時間:<%--<%=trashcarrecord.getTime2() %>--%> -->	         
                 </div>
+                
+                <div class="gps">
                 <input type="radio" id="gt3" name="gt" value="3">
-                <label for="other">gt3</label>
-                <div>
+                <%
+					StringBuffer time3 = new StringBuffer(trashcarrecord.getTime3());
+					time3.insert(2, ':');
+				%>
+                <label for="gt3"  class="labels">預計抵達時間:<%=time3%></label>
                 <iframe id="gt3frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getRelat3()%>,<%=trashcarrecord.getRelng3()%>"></iframe>
                 <br>
                 <input type="hidden" name="Lat3" value="<%=trashcarrecord.getRelat3()%>">
                	<input type="hidden" name="Lng3" value="<%=trashcarrecord.getRelng3()%>">
                	<input type="hidden" name="CarTimeStart3" value="<%=trashcarrecord.getTime3()%>">
-                                        垃圾車預計抵達時間:<%=trashcarrecord.getTime3() %>
-                </div>                     
-                <input type="submit"  value="設定完成"> 
+                  <!--  垃圾車預計抵達時間:<%--<%=trashcarrecord.getTime3() %>--%> -->	 
+                </div> 
+                <div class="setyessubmit">                    
+                <input type="submit" class="fbutton"  value="設定完成"> 
+                </div>
             </fieldset>
             
            
         </form>
-        <a href="index.html"><button>回首頁</button></a><br>
+        <a href="/ican/Ican/index.html"><button class="button">回首頁</button></a><br>
     </div>
 
 
     <script>
+    
+    window.addEventListener("load" ,function () {
+        $('#loadingPage').hide();
+        $('#loading-image').hide();
+        console.log("load")
+    });
+    
+    var time
+    
         var map, marker, lat, lng;
         function getLocation() {//取得 經緯度
             if (navigator.geolocation) {//
