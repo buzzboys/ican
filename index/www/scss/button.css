@@ -1,0 +1,24 @@
+@font-face {
+    font-family: DFTsaiStd;
+    src: url('/ican/Ican/DFTsaiStd-W3.otf');
+}
+
+.rn {            
+    color: #5f3208;
+    font-size: 22px;
+    font-family: DFTsaiStd;
+    text-shadow: #bdcc38ce 1px 1px;
+    margin-right: 1.5em;
+    margin-left: 20px;
+}
+
+.button {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #f8fce4;
+    border-radius: 5px;
+    border: solid 1px #006030;
+    background-color: #006030;
+    box-shadow: 2px 0px 2px #019858;
+
+}
