@@ -4,7 +4,9 @@
 }
 
 body {
-  background-color: #D1EDE1;
+  /*background-color: #D1EDE1;*/
+  background-image: linear-gradient(to bottom, #fafff0 0%, #faf0e6 100%);
+background-attachment: fixed; 
   overflow: hidden;
   /* background-color: #7BC5A1;
   background-color: #028C6A;
@@ -14,7 +16,8 @@ body {
 
 h1 {
   text-align: center;
-  color: #028C6A;
+  color: #82D900;
+  text-shadow: 2px 3px 0.1em #796400 ;
 }
 
 #div1 {
@@ -39,6 +42,7 @@ h1 {
   margin-right: auto;
   display: block;
   width: 800PX;
+  height: 600px;
 }
 
 #mychart3 {
@@ -48,6 +52,7 @@ h1 {
   margin-right: auto;
   display: block;
   width: 800PX;
+  height: 600px;
 }
 
 #mychart4 {
@@ -57,6 +62,7 @@ h1 {
   margin-right: auto;
   display: block;
   width: 800PX;
+  height: 600px;
 }
 
 div {
@@ -66,17 +72,18 @@ div {
 table {
   width: 600PX;
   margin: auto;
-  background-color: #D1EDE1;
+  background-color: #D1E9E9;
+  border-radius:0% 0% 5% 5% ;
 }
 th{
-  background-color: #7BC5A1;
-  color: #028C6A;
+  background-color: #ded191;
+  color: #ae8f00;
 }
 
 
 
 #btn1 {
-  background-color: #7BC5A1;
+  background-color: rgb(0,121,121,0.6);
   border: none;
   cursor: pointer;
 }  
@@ -87,12 +94,13 @@ th{
 
 .asideMenu {
   width: 300px;
-  background-color: #474747;
+  background-color: rgb(0,121,121,0.4) ;
+  backdrop-filter: blur(7px);
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  border-left: 5px solid #7BC5A1;
+  border-left: 5px solid rgb(0,147,147,0.4);
   padding: 20px;
   -webkit-box-shadow: 0 0 5px rgba(23, 23, 54, 0.6);
           box-shadow: 0 0 5px rgba(23, 23, 54, 0.6);
@@ -102,6 +110,7 @@ th{
   transition: all 0.5s;
   
 }
+
 
 .asideMenu.active {
   -webkit-transform: translateX(295px);
@@ -135,7 +144,7 @@ th{
 
 .asideMenu .title {
   font-size: 24px;
-  color: #7BC5A1;
+  color: #007979;
   text-align: center;
 }
 dt{
@@ -144,10 +153,10 @@ dt{
 }
 
 .asideMenu .list .optionTitle {
-  color: #7BC5A1;
+  color: #007979;
   display: block;
   padding: 20px;
-  padding-left: 20px ;
+  padding-left: 95px ;
   line-height: 1.5;
 }
 

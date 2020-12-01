@@ -1,45 +1,61 @@
 .asideMenu {
   width: 780px;
   height: 80px;
-  background-color: #474747;
   position: relative;
-  border-left: 5px solid #7BC5A1;
-  -webkit-box-shadow: 0 0 5px rgba(23, 23, 54, 0.6);
-          box-shadow: 0 0 5px rgba(23, 23, 54, 0.6);
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
-  -webkit-transition: all 0.5s;
-  transition: all 0.5s;
   padding: 0;
   
 }
 
-
-
-.divre{
-  float: left;
-  width: 145px;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  font-size: medium;
-  font-family: 標楷體;
+.asideMenu .title {
+  font-size: 24px;
+  position: relative;
+  text-align:justify;
+  line-height: 1.5;
+  margin:auto 23%;
 }
 
-
-p{
-  cursor: pointer;
-  font-size: 1.25em;
+.asideMenu .btn {
+  position: absolute;
+  top: -8%;
+  padding: 40px 10px;
 }
+
 .asideMenu .list .optionTitle {
-  color: #7BC5A1;
   display: block;
   padding: 0;
   margin: 0;
-  padding-left: 90px ;
   line-height: 1.5;
+}
+
+dt{
+  cursor: pointer;
+  float: left;
+  margin: auto 20px;
+  padding: 20px auto;
+  
 }
 
 .asideMenu .list .optionTitle :hover {
   color: #D1EDE1;
 } 
+
+table{
+  margin:auto 30px;
+  width:500px;  
+}
+
+#mychart2{
+  height: 400px;
+  width: 300px;
+
+}
+#mychart3{
+  height: 400px;
+  width: 300px;
+
+}
+#mychart4{
+  height: 400px;
+  width: 300px;
+
+}

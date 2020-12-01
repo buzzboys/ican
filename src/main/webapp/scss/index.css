@@ -9,10 +9,11 @@ body {
 #div1 {
     text-align: center;
     margin-top: 1em;
+    margin-bottom:4em;
 }
 
 #div1 img {
-    width: 600px;
+    width: 375px;
 }
 
 
@@ -21,17 +22,7 @@ body {
             justify-content: center;
             align-items: center;
         }
-
-        .coverb {
-            background: #9ff19fda;
-            width: 25px;
-            height: 15px;
-            border: solid 1px rgb(201, 201, 194);
-            border-radius: 50% 50% 0 0;
-            display: inside;
-            margin: auto 49%;
-        }
-
+        
         .cover {
             width: 350px;
             border: solid 2px #9ff19fda;
@@ -169,34 +160,33 @@ form {
 	margin: 10px;
 }
 
+
 #landlord {
+	position:relative;
 	display: flex;
 	justify-content: center;
-
+	align-items: center;
  	margin: 0;
-	padding: 0;
+	padding: 0;             
 	}
 #live2d {
-
+            position:absolute;
+            bottom:0px;
             border-radius: 50% 50% 0 0;
             display: inside;
-/*             margin: auto 52%;
-            padding: 0; */
-            float:left;
-            margin-left:2%;
+            margin-left:200px;
             
 
 }
         
         .coverb {
+        	position:absolute;
+            bottom:0px;
             background: #9ff19fda;
             width: 25px;
             height: 15px;
             border: solid 1px rgb(201, 201, 194);
             border-radius: 50% 50% 0 0;
             display: inside;
-            float:left;
-            margin-left:9.5%;
-            margin-top:3.3%;
             padding-bottom:0;
         }
