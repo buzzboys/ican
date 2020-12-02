@@ -95,30 +95,31 @@
 		ws.onopen = function () { console.log("Get connection to RasPi"); }
 		ws.onclose = function () { console.log("Lost connection to RasPi"); }
 		ws.onmessage = function (event) {
+			data = JSON.parse(event.data)
 			console.log(event.data);
-			if (event.data['trash'] !== undefined) {
-	            if (event.data[] == 50) {
+			if (data !== undefined) {
+				signal = data['trash']
+	            if (signal == 50) {
 	                $("#water1").addClass("water2");
 	                $("#water1").removeClass("water3");
-	            } else if (event.data == 80) {
+	            } else if (signal == 80) {
 	                $("#water1").removeClass("water2");
 	                $("#water1").addClass("water3");
-	
-	            } else if (event.data == 0) {
+	            } else if (signal == 0) {
 	                $("#water1").removeClass("water3");
 	                $("#water1").removeClass("water2");
 	            }			
 			}
 			
-			if (event.data['recycled'] !== undefined) {
-	            if (data.msgr == 50) {
+			if (data !== undefined) {
+				signal = data['recycled']
+	            if (signal == 50) {
 	                $("#water2").addClass("water2");
 	                $("#water2").removeClass("water3");
-	            } else if (data.msgr == 80) {
+	            } else if (signal == 80) {
 	                $("#water2").removeClass("water2");
 	                $("#water2").addClass("water3");
-
-	            } else if (data.msgr == 0) {
+	            } else if (signal == 0) {
 	                $("#water2").removeClass("water3");
 	                $("#water2").removeClass("water2");
 	            }

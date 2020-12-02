@@ -21,23 +21,23 @@ wss.on('connection', function (ws) {
         if (err) exit();
         console.log("一般50% " + value);
         if (value == 0) {
-            ws.send({ 'trash': 50 })
+            ws.send(JSON.stringify({ 'trash': 50 }))
         } else {
             console.log("一般垃圾else:50% " + value);
-            ws.send({ 'trash': 0 })
+            ws.send(JSON.stringify({ 'trash': 0 }))
         }
     });
     pir80.watch(function (err, value) {
         if (err) exit();
         console.log("一般80% " + value);
         if (value == 0) {
-            ws.send({ 'trash': 80 })
+            ws.send(JSON.stringify({ 'trash': 80 }))
             led1.write(1, function () {
                 console.log("LED亮 80%倒垃圾");
             });
         } else {
             console.log("一般垃圾else:80% " + value);
-            ws.send({ 'trash': 50 })
+            ws.send(JSON.stringify({ 'trash': 50 }))
             led1.write(0, function () {
                 console.log("LED1 低於80關閉led");
             });
@@ -49,23 +49,23 @@ wss.on('connection', function (ws) {
         if (err) exit();
         console.log("回收50% " + value);
         if (value == 0) {
-            ws.send({ 'recycled': 50 })
+            ws.send(JSON.stringify({ 'recycled': 50 }))
         } else {
             console.log("回收else:50% " + value);
-            ws.send({ 'recycled': 0 })
+            ws.send(JSON.stringify({ 'recycled': 0 }))
         }
     });
     pir80r.watch(function (err, value) {
         if (err) exit();
         console.log("回收80% " + value);
         if (value == 0) {
-            ws.send({ 'recycled': 80 })
+            ws.send(JSON.stringify({ 'recycled': 80 }))
             led2.write(1, function () {
                 console.log("LED2亮 80%倒垃圾");
             });
         } else {
             console.log("回收else:80% " + value);
-            ws.send({ 'recycled': 50})
+            ws.send(JSON.stringify({ 'recycled': 50}))
             led2.write(0, function () {
                 console.log("LED2 低於50關閉led");
             });
