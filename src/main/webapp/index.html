@@ -89,7 +89,7 @@
 		raspi_ip1 = "192.168.33.96"
 		raspi_ip2 = "192.168.34.76"
 		raspi_ip3 = "192.168.137.10"
-		var ws = new WebSocket("ws://" + raspi_ip3 + ":5000/")
+		var ws = new WebSocket("ws://" + raspi_ip2 + ":5000/")
 		ws.onopen = function () { console.log("Get connection to RasPi"); }
 		ws.onclose = function () { console.log("Lost connection to RasPi"); }
 		ws.onmessage = function (event) {
