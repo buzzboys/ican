@@ -49,12 +49,13 @@
 	</div>
 	<div id="mychart1">
 		<table>
+			<thead>
+    			<tr>
+      				<th>類型</th>
+     				 <th>時間</th>
+    			</tr>
+  			</thead>
 			<tbody>
-				<tr>
-					<div></div>
-					<th>類型</th>
-					<th>時間</th>
-				</tr>
 				<%
 					List<RNclass> RNs = (ArrayList<RNclass>) request.getAttribute("Classes");
 					for (RNclass RN : RNs) {
@@ -97,12 +98,30 @@
 		});
 	});
 	
-    $(window).resize(function() {
-        var wdth=$(window).width();
-        if(width<=780){
-    		$("#chart1").width();
-        }  
-    });
+    //pageing
+    $(function(){
+	 var $table = $('table');
+	 var currentPage = 0;//当前页默认值为0
+	 var pageSize = 10;//每一页显示的数目
+	 $table.bind('paging',function(){
+		 $table.find('tbody tr').hide().slice(currentPage*pageSize,(currentPage+1)*pageSize).show();
+	 });	 
+	 var sumRows = $table.find('tbody tr').length;
+	 var sumPages = Math.ceil(sumRows/pageSize);//总页数
+	 
+	 var $pager = $('<div class="page"></div>');  //新建div，放入a标签,显示底部分页码
+	 for(var pageIndex = 0 ; pageIndex<sumPages ; pageIndex++){
+		 $('<a href="#" id="pageStyle" οnclick="changCss(this)"><span>'+(pageIndex+1)+'</span></a>').bind("click",{"newPage":pageIndex},function(event){
+			 currentPage = event.data["newPage"];
+			 $table.trigger("paging");
+			   //触发分页函数
+			 }).appendTo($pager);
+			 $pager.append(" ");
+		 }	 
+		 $pager.insertAfter($table);
+		 $table.trigger("paging");
+});
+
 
 	$('#pastbt').click(function() {
 		$("#mychart1").css("display", "");
