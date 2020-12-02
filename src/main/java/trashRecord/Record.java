@@ -1,75 +1,70 @@
-package IcanJAVA;
+package trashRecord;
 
 import java.io.IOException;
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
-import javax.management.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport.QueryStats;
 import org.bson.Document;
 
-import IcanJAVA.RNclass;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
+import trashRecord.RNclass;
+
 import com.mongodb.MongoClient;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoIterable;
 
-
-@WebServlet("/Listing")
-public class Listing extends HttpServlet {
+@WebServlet("/trash/record")
+public class Record extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String JDBC_DRIVER = "mongodb.jdbc.MongoDriver";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		MongoClient mongo = null;
 		try {
-			MongoClient mongo = new MongoClient("localhost", 27017);
-			MongoDatabase db = mongo.getDatabase("test"); 
-			MongoCollection col = db.getCollection("Record");
+			mongo = new MongoClient("localhost", 27017);
+			MongoDatabase db = mongo.getDatabase("test");
+			MongoCollection<Document> col = db.getCollection("Record");
 			MongoCursor<Document> csr = col.find().cursor();
 			long count_N = col.countDocuments();
 			int i = 1;
 			List<RNclass> Classes = new ArrayList<>();
 			RNclass Class = null;
 
-			while (csr.hasNext()) {	
+			while (csr.hasNext()) {
 				Class = new RNclass();
-				
-				Document N =csr.next();
-				String line_class = N.get("Ãþ§O").toString();
-				String line_date  = N.get("®É¶¡").toString();	
-				String line = (i+" : "+line_class+"  "+line_date);
+
+				Document N = csr.next();
+				String line_class = N.get("é¡žåˆ¥").toString();
+				String line_date = N.get("æ™‚é–“").toString();
+				String line = (i + " : " + line_class + "  " + line_date);
 				i++;
-				
-				Class.setTime(N.get("®É¶¡").toString());
-				Class.setRN_class(N.get("Ãþ§O").toString());
+
+				Class.setTime(N.get("æ™‚é–“").toString());
+				Class.setRN_class(N.get("é¡žåˆ¥").toString());
 				Classes.add(Class);
-				
+
 				System.out.println(line);
 			}
 			System.out.println(count_N);
 			System.out.println("Connect to database successfully!");
 //			
 			request.setAttribute("Classes", Classes);
-			request.getRequestDispatcher("/Ican/past.jsp").
-			forward(request, response);
-			
+			request.getRequestDispatcher("./past.jsp").forward(request, response);
+
 		} catch (Exception e) {
-			System.out.println(e);}
+			System.out.println(e);
+		} finally {
+			if (mongo != null) {
+				mongo.close();
+			}
 		}
-		
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -78,8 +73,3 @@ public class Listing extends HttpServlet {
 	}
 
 }
-
-
-
-
-

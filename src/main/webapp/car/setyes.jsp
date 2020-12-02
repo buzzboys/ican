@@ -1,6 +1,6 @@
-<%@page import="trashcar.bean.TrashCarRecordBean"%>
+<%@page import="trashCar.bean.TrashCarRecordBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashcar.bean.TrashCarBean"%>
+pageEncoding="UTF-8" import="java.util.*,trashCar.bean.TrashCarRecordBean,trashCar.bean.TrashCarBean"%>
 <!DOCTYPE html>
 <html lang="zh-TW">
 
@@ -10,10 +10,10 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"
         integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="./scss/loadingpage.css">
-    <link rel="stylesheet" href="./scss/set.css">
-    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="./scss/set780.css" />
-    <link rel="stylesheet" href="./scss/button.css">
+	<link rel="stylesheet" href="../scss/loadingpage.css">
+    <link rel="stylesheet" href="../scss/set.css">
+    <link rel="stylesheet" media="screen and  (max-width: 780px)" href="../scss/set780.css" />
+    <link rel="stylesheet" href="../scss/button.css">
     <title>設定</title>
     <style>
 
@@ -21,10 +21,10 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
 </head>
 
 <body>
-<div id="loadingPage"><img id="loading-image" src="./pic/giphy.gif" alt="Loading..." /></div>
+<div id="loadingPage"><img id="loading-image" src="../pic/giphy.gif" alt="Loading..." /></div>
     <div id="div1">
         <h1>設定</h1>
-        <form class="form1" method="post" action="./GetCarsToDB">
+        <form class="form1" method="post" action="./record">
             <fieldset>
                 <legend>GPS</legend>
                 
@@ -101,7 +101,7 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
             </fieldset>
 
         </form>
-        <a href="./index.html"><button class="button">回首頁</button></a><br>
+        <a href="../index.html"><button class="button">回首頁</button></a><br>
     </div>
 
 
@@ -143,7 +143,7 @@ pageEncoding="UTF-8" import="java.util.*,trashcar.bean.TrashCarRecordBean,trashc
             console.log(lng);
 			console.log("input: ",lng);
 			
-            req = './GetAllTrashCar?lat=' + position.coords.latitude + "&lng=" + position.coords.longitude;
+            req = './nearest?lat=' + position.coords.latitude + "&lng=" + position.coords.longitude;
 			
             console.log(req);
             		

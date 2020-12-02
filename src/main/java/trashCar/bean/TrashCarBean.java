@@ -1,4 +1,4 @@
-package trashcar.bean;
+package trashCar.bean;
 
 public class TrashCarBean implements java.io.Serializable {
 	private static final long serialVersionUID = 1L;
