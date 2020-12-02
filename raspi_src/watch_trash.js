@@ -19,25 +19,25 @@ const led2 = new Gpio(24, 'out'); //資源回收LED
 wss.on('connection', function (ws) {
     pir50.watch(function (err, value) {
         if (err) exit();
-        console.log("一般50%" + value);
+        console.log("一般50% " + value);
         if (value == 0) {
-            ws.send(50)
+            ws.send({ 'trash': 50 })
         } else {
-            console.log("一般垃圾else:50%" + value);
-            ws.send(0)
+            console.log("一般垃圾else:50% " + value);
+            ws.send({ 'trash': 0 })
         }
     });
     pir80.watch(function (err, value) {
         if (err) exit();
-        console.log("一般80%" + value);
+        console.log("一般80% " + value);
         if (value == 0) {
-            ws.send(80)
+            ws.send({ 'trash': 80 })
             led1.write(1, function () {
-                console.log("LED亮 80%到垃圾");
+                console.log("LED亮 80%倒垃圾");
             });
         } else {
-            console.log("一般垃圾else:80%" + value);
-            ws.send(50)
+            console.log("一般垃圾else:80% " + value);
+            ws.send({ 'trash': 50 })
             led1.write(0, function () {
                 console.log("LED1 低於80關閉led");
             });
@@ -47,25 +47,25 @@ wss.on('connection', function (ws) {
     //資源回收處理gpio6(50) 5(80)
     pir50r.watch(function (err, value) {
         if (err) exit();
-        console.log("回收50%" + value);
+        console.log("回收50% " + value);
         if (value == 0) {
-            ws.send(50)
+            ws.send({ 'recycled': 50 })
         } else {
-            console.log("回收else:50%" + value);
-            ws.send(0)
+            console.log("回收else:50% " + value);
+            ws.send({ 'recycled': 0 })
         }
     });
     pir80r.watch(function (err, value) {
         if (err) exit();
-        console.log("回收80%" + value);
+        console.log("回收80% " + value);
         if (value == 0) {
-            ws.send(80)
+            ws.send({ 'recycled': 80 })
             led2.write(1, function () {
-                console.log("LED2亮 80%到垃圾");
+                console.log("LED2亮 80%倒垃圾");
             });
         } else {
-            console.log("回收else:80%" + value);
-            ws.send(50)
+            console.log("回收else:80% " + value);
+            ws.send({ 'recycled': 50})
             led2.write(0, function () {
                 console.log("LED2 低於50關閉led");
             });

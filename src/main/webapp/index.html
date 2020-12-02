@@ -89,39 +89,41 @@
 		raspi_ip1 = "192.168.33.96"
 		raspi_ip2 = "192.168.34.76"
 		raspi_ip3 = "192.168.137.10"
-		var ws = new WebSocket("ws://" + raspi_ip2 + ":5000/")
+		raspi_ip4 = "192.168.34.46"
+		
+		var ws = new WebSocket("ws://" + raspi_ip4 + ":5000/")
 		ws.onopen = function () { console.log("Get connection to RasPi"); }
 		ws.onclose = function () { console.log("Lost connection to RasPi"); }
 		ws.onmessage = function (event) {
 			console.log(event.data);
-            if (event.data == 50) {
-                $("#water1").addClass("water2");
-                $("#water1").removeClass("water3");
-            } else if (event.data == 80) {
-                $("#water1").removeClass("water2");
-                $("#water1").addClass("water3");
+			if (event.data['trash'] !== undefined) {
+	            if (event.data[] == 50) {
+	                $("#water1").addClass("water2");
+	                $("#water1").removeClass("water3");
+	            } else if (event.data == 80) {
+	                $("#water1").removeClass("water2");
+	                $("#water1").addClass("water3");
+	
+	            } else if (event.data == 0) {
+	                $("#water1").removeClass("water3");
+	                $("#water1").removeClass("water2");
+	            }			
+			}
+			
+			if (event.data['recycled'] !== undefined) {
+	            if (data.msgr == 50) {
+	                $("#water2").addClass("water2");
+	                $("#water2").removeClass("water3");
+	            } else if (data.msgr == 80) {
+	                $("#water2").removeClass("water2");
+	                $("#water2").addClass("water3");
 
-            } else if (event.data == 0) {
-                $("#water1").removeClass("water3");
-                $("#water1").removeClass("water2");
-            }
+	            } else if (data.msgr == 0) {
+	                $("#water2").removeClass("water3");
+	                $("#water2").removeClass("water2");
+	            }
+			}
         }
-        /*
-        socket.on('pir', function (data) {
-            console.log(data.msgr)
-            if (data.msgr == 50) {
-                $("#water2").addClass("water2");
-                $("#water2").removeClass("water3");
-            } else if (data.msgr == 80) {
-                $("#water2").removeClass("water2");
-                $("#water2").addClass("water3");
-
-            } else if (data.msgr == 0) {
-                $("#water2").removeClass("water3");
-                $("#water2").removeClass("water2");
-            }
-        })
-        */
 
 
 		var clickcount2 = 1;
