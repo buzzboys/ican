@@ -1,8 +1,9 @@
-const express = require("express");
-const app = express();
-const server = app.listen(5000);
+// const express = require("express");
+// const app = express();
+// const server = app.listen(5000);
 const WebSocket = require('ws')
-const wss = new WebSocket.Server({ server })
+// const wss = new WebSocket.Server({ server })
+const ws = new WebSocket('ws://192.168.34.147:8080/Ican/IcanContent')
 
 const exec = require('child_process').exec;
 const Gpio = require('onoff').Gpio;
@@ -15,8 +16,11 @@ const led1 = new Gpio(25, 'out'); //一般垃圾LED
 const led2 = new Gpio(24, 'out'); //資源回收LED
 
 
+ws.on('open', function () { console.log('Connected to server') });
+ws.on('close', function () { console.log('Disonnected to server') });
+
 // 一般垃圾處理gpio27(50) 17(80)
-wss.on('connection', function (ws) {
+// ws.onmessage('connection', function (ws) {
     pir50.watch(function (err, value) {
         if (err) exit();
         console.log("一般50% " + value);
@@ -71,7 +75,7 @@ wss.on('connection', function (ws) {
             });
         }
     });
-});
+// });
 
 
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<input id="data" type="text">
+	<input id="submit" type="button" value="傳送">
+</body>
+<script>
+
+	var wsUri = "ws://" + document.location.host + "/IcanContent"
+	if (document.location.pathname.indexOf("Ican") > 0) {
+		wsUri = "ws://" + document.location.host + "/Ican/IcanContent"
+	}
+	
+	const ws = new WebSocket(wsUri)
+	ws.onopen = function () { console.log("Get connection to RasPi"); }
+	ws.onclose = function () { console.log("Lost connection to RasPi"); }
+	ws.onmessage = function (event) {
+		console.log("envent data: " + event.data)
+	}
+	
+	document.querySelector("#submit").addEventListener("click", function () {
+		data = document.querySelector("#data").value
+		ws.send(JSON.stringify({ 'trash': data }))
+	})
+
+</script>
+</html>

@@ -91,7 +91,12 @@
 		raspi_ip3 = "192.168.137.10"
 		raspi_ip4 = "192.168.34.46"
 		
-		var ws = new WebSocket("ws://" + raspi_ip4 + ":5000/")
+		var wsUri = "ws://" + document.location.host + "/IcanContent"
+		if (document.location.pathname.indexOf("Ican") > 0) {
+			wsUri = "ws://" + document.location.host + "/Ican/IcanContent"
+		}
+		
+		var ws = new WebSocket(wsUri)
 		ws.onopen = function () { console.log("Get connection to RasPi"); }
 		ws.onclose = function () { console.log("Lost connection to RasPi"); }
 		ws.onmessage = function (event) {

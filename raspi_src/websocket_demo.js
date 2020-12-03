@@ -1,21 +1,10 @@
-const express = require('express')
-const app = express()
-const server = app.listen(5000)
 const WebSocket = require('ws')
+const ws = new WebSocket('ws://192.168.137.1:8080/Ican/IcanContent')
 
-const wss = new WebSocket.Server({ server })
+ws.onopen = function () { console.log("Get connection to RasPi"); }
+ws.onclose = function () { console.log("Lost connection to RasPi"); }
+ws.onmessage = function (event) {
 
-wss.on('connection', function (ws) {
-    console.log('Get connection!')
+        console.log('send data: ' + event.data)
 
-    ws.on('message', function (data) {
-        console.log(data)
-    })
-
-    let data = 50
-    setInterval(function () {
-        data = (data + 50) % 100
-        ws.send(data)
-        console.log('send data: ' + data)
-    }, 2000)
-})
+}
