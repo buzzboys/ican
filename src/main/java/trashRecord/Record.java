@@ -53,10 +53,10 @@ public class Record extends HttpServlet {
 			
 			Document N = new Document("type", "normal");
 			Document R = new Document("type", "recycle");
-			Document cn = new Document("class", "normal");
+			Document cn = new Document("class", "trash");
 			Document cb = new Document("class", "bottle");
 			Document cc = new Document("class", "can");
-			Document cp = new Document("class", "papper");
+			Document cp = new Document("class", "paper");
 			Document cba = new Document("class", "battery");
 
 			long number_N = col.countDocuments(N);
