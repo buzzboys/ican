@@ -24,10 +24,6 @@
 
 <body>
 <div id="loadingPage"><img id="loading-image" src="../pic/giphy.gif" alt="Loading..." /></div>
-	<h1 id="pastt" >過去紀錄</h1>
-	<h1 id="chart1t"  style="display: none;">垃圾統計</h1>
-	<h1 id="chart2t"  style="display: none;">當月類別</h1>
-	<h1 id="chart3t"  style="display: none;">類別餅圖</h1>
 	<div class="asideMenu">
 		<button id="btn1" class="btn">
 			<i class="fas fa-chevron-right fa-2x">&diams;</i>
@@ -50,6 +46,10 @@
 			</dl>
 		</div>
 	</div>
+	<h1 id="pastt" >過去紀錄</h1>
+	<h1 id="chart1t"  style="display: none;">垃圾統計</h1>
+	<h1 id="chart2t"  style="display: none;">當月類別</h1>
+	<h1 id="chart3t"  style="display: none;">類別餅圖</h1>
 	<div id="mychart1">
 		<table>
 			<thead>
