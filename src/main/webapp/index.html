@@ -102,28 +102,32 @@
 		ws.onmessage = function (event) {
 			data = JSON.parse(event.data)
 			console.log(event.data);
-			if (data !== undefined) {
+			if (data['trash'] !== undefined) {
 				signal = data['trash']
 	            if (signal == 50) {
 	                $("#water1").addClass("water2");
 	                $("#water1").removeClass("water3");
+	                $(".water2").text("50%");
 	            } else if (signal == 80) {
 	                $("#water1").removeClass("water2");
 	                $("#water1").addClass("water3");
+	                $(".water3").text("80%");
 	            } else if (signal == 0) {
 	                $("#water1").removeClass("water3");
 	                $("#water1").removeClass("water2");
 	            }			
 			}
 			
-			if (data !== undefined) {
+			if (data['recycled'] !== undefined) {
 				signal = data['recycled']
 	            if (signal == 50) {
 	                $("#water2").addClass("water2");
 	                $("#water2").removeClass("water3");
+	                $(".water2").text("50%");
 	            } else if (signal == 80) {
 	                $("#water2").removeClass("water2");
 	                $("#water2").addClass("water3");
+	                $(".water3").text("80%");
 	            } else if (signal == 0) {
 	                $("#water2").removeClass("water3");
 	                $("#water2").removeClass("water2");
@@ -132,21 +136,21 @@
         }
 
 
-		var clickcount2 = 1;
-		$("#water2").click(function() {
-			if (clickcount2 % 3 == 1) {
-				$("#water2").addClass("water2");
-				clickcount2 += 1;
-			} else if (clickcount2 % 3 == 2) {
-				$("#water2").removeClass("water2");
-				$("#water2").addClass("water3");
-				clickcount2 += 1;
-			} else {
-				$("#water2").removeClass("water3");
-				clickcount2 += 1;
-			}
+		//var clickcount2 = 1;
+		//$("#water2").click(function() {
+		//	if (clickcount2 % 3 == 1) {
+		//		$("#water2").addClass("water2");
+		//		clickcount2 += 1;
+		//	} else if (clickcount2 % 3 == 2) {
+		//		$("#water2").removeClass("water2");
+		//		$("#water2").addClass("water3");
+		//		clickcount2 += 1;
+		//	} else {
+		//		$("#water2").removeClass("water3");
+		//		clickcount2 += 1;
+		//	}
 
-		});
+		//});
 
 		// $("#container1").click(function () {
 		//     $("#water1").toggleClass("water2");

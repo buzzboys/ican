@@ -24,25 +24,28 @@
 
 <body>
 <div id="loadingPage"><img id="loading-image" src="../pic/giphy.gif" alt="Loading..." /></div>
-	<h1>過去紀錄</h1>
+	<h1 id="pastt" >過去紀錄</h1>
+	<h1 id="chart1t"  style="display: none;">垃圾統計</h1>
+	<h1 id="chart2t"  style="display: none;">當月類別</h1>
+	<h1 id="chart3t"  style="display: none;">類別餅圖</h1>
 	<div class="asideMenu">
 		<button id="btn1" class="btn">
 			<i class="fas fa-chevron-right fa-2x">&diams;</i>
 		</button>
-		<div class="title">Aside Menu</div>
+		<div class="title">Ican Menu</div>
 		<div class="list">
 			<dl class="optionTitle">
 				<dt>
 					<p id="pastbt">過去紀錄</p>
 				</dt>
 				<dt>
-					<p id="chart1bt">圖表1</p>
+					<p id="chart1bt">垃圾統計</p>
 				</dt>
 				<dt>
-					<p id="chart2bt">圖表2</p>
+					<p id="chart2bt">當月類別</p>
 				</dt>
 				<dt>
-					<p id="chart3bt">圖表3</p>
+					<p id="chart3bt">類別餅圖</p>
 				</dt>
 			</dl>
 		</div>
@@ -128,6 +131,11 @@
 		$("#mychart2").css("display", "none");
 		$("#mychart3").css("display", "none");
 		$("#mychart4").css("display", "none");
+		
+		$("#pastt").css("display", "");
+		$("#chart1t").css("display", "none");
+		$("#chart2t").css("display", "none");
+		$("#chart3t").css("display", "none");
 		console.log("1");
 	});
 	$('#chart1bt').click(function() {
@@ -135,6 +143,13 @@
 		$("#mychart2").css("display", "");
 		$("#mychart3").css("display", "none");
 		$("#mychart4").css("display", "none");
+		
+		$("#pastt").css("display", "none");
+		$("#chart1t").css("display", "");
+		$("#chart2t").css("display", "none");
+		$("#chart3t").css("display", "none");
+		
+		
 		console.log("2");
 	});
 	$('#chart2bt').click(function() {
@@ -142,6 +157,11 @@
 		$("#mychart2").css("display", "none");
 		$("#mychart3").css("display", "");
 		$("#mychart4").css("display", "none");
+		
+		$("#pastt").css("display", "none");
+		$("#chart1t").css("display", "none");
+		$("#chart2t").css("display", "");
+		$("#chart3t").css("display", "none");
 		console.log("3");
 	});
 	$('#chart3bt').click(function() {
@@ -149,6 +169,11 @@
 		$("#mychart2").css("display", "none");
 		$("#mychart3").css("display", "none");
 		$("#mychart4").css("display", "");
+		
+		$("#pastt").css("display", "none");
+		$("#chart1t").css("display", "none");
+		$("#chart2t").css("display", "none");
+		$("#chart3t").css("display", "");		
 		console.log("4");
 	});
 	
@@ -160,16 +185,24 @@
 	var chart1 = new Chart(ctx1, {
 		type : 'bar',
 		data : {
-			labels : [ "normal", "recycle" ],
+			labels : [ "數量" ],
 			datasets : [ {
-				label : '# of Votes',
-				data : [${number_N}, ${number_R}],
-				backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+				label : '一般垃圾',
+				data : [${number_N}],
+				backgroundColor : [ 'rgba(255, 99, 132, 0.2)'
+						 ],
+				borderColor : [ 'rgba(255,99,132,1)'
+						 ],
+				borderWidth : 1
+			},{
+				label : '回收垃圾',
+				data : [${number_R}],
+				backgroundColor : [ 
 						'rgba(54, 162, 235, 0.2)' ],
-				borderColor : [ 'rgba(255,99,132,1)',
+				borderColor : [
 						'rgba(54, 162, 235, 1)' ],
 				borderWidth : 1
-			} ]
+			} ],
 		},
 		options : {
                 responsive: true,
@@ -545,7 +578,7 @@
 	                    yAxes: [{
 	                        ticks: {
 	                            suggestedMin: 0,
-	                            suggestedMax: 10,
+	                            suggestedMax: 5,
 	                            stepSize: 1
 	                        }
 	                    }]	                    
