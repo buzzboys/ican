@@ -153,6 +153,8 @@
 	});
 	
 	var ctx1 = document.getElementById('chart1').getContext('2d');
+	
+	
 	   
 
 	var chart1 = new Chart(ctx1, {
@@ -183,29 +185,372 @@
 	});
 
 	var ctx2 = document.getElementById('chart2').getContext('2d');
+	
+	 var timea = [];
+	 var classa = [];
+	 
+	<%
+	List<RNclass> Classes = (ArrayList<RNclass>) request.getAttribute("Classes");
+	for (RNclass Class : Classes) {
+		
+		
+%>
+			timea.push("<%=Class.getTime()%>")
+			classa.push("<%=Class.getType()%>")
 
+	       <%
+	}
+%>	       
+	       console.log(timea);
+	       console.log(classa);
+	       
+	       //bottle
+	       bottle = []
+	       function checkbottle() {
+		          for (i=0;i<classa.length;i++){
+		        	  if(classa[i] == "bottle") {
+		        		  console.log(timea[i].slice(5,10));
+		        		  bottle.push(timea[i].slice(5,10));
+		        	  };
+		          };
+		      }
+	       bottle.sort()
+	       bottlenum =[]
+	       checkbottle();
+	       
+	       console.log(bottle.sort());
+
+    	   var by1 = 0
+    	   var by2 = 0
+    	   var by3 = 0
+    	   var by4 = 0
+    	   var by5 = 0
+    	   var by6 = 0
+  
+
+    	   function bottlenumber() {   
+	       for (i=0;i<bottle.length;i++){
+	    	   
+	    	   if(bottle[i].slice(3,5) <= 3){
+	    		   console.log("by1="+bottle[i])
+	    		   by1++
+	    	   }else if( 3 < bottle[i].slice(3,5) & bottle[i].slice(3,5) <= 9 ){
+	    		   console.log("by2="+bottle[i].slice(3,5))
+	    		   by2++
+	    	   }else if( 9 < bottle[i].slice(3,5) & bottle[i].slice(3,5) <= 15 ){
+	    		   console.log("by3="+bottle[i].slice(3,5))
+	    		   by3++
+	    	   }else if( 15 < bottle[i].slice(3,5) & bottle[i].slice(3,5) <= 21 ){
+	    		   console.log("by4="+bottle[i].slice(3,5))
+	    		   by4++
+	    	   }else if( 21 < bottle[i].slice(3,5) & bottle[i].slice(3,5) <= 28 ){
+	    		   console.log("by5="+bottle[i].slice(3,5))
+	    		   by5++
+	    	   } else {
+	    		   console.log("by6="+bottle[i].slice(3,5))
+	    		   by6++
+	    	   }
+	          }};
+	          
+	          bottlenumber()      
+	    	   bottlenum.push(by1);
+	    	   bottlenum.push(by2);
+	    	   bottlenum.push(by3);
+	    	   bottlenum.push(by4);
+	    	   bottlenum.push(by5);
+	    	   bottlenum.push(by6);
+	    	   console.log(bottlenum)
+
+	    	  
+	    	//can
+	       can = []
+	       function checkcan() {
+		          for (i=0;i<classa.length;i++){
+		        	  if(classa[i] == "can") {
+		        		  console.log(timea[i].slice(5,10));
+		        		  can.push(timea[i].slice(5,10));
+		        	  };
+		          };
+		      }
+		   can.sort()
+	       cannum =[]
+	       checkcan();
+	       
+	       console.log("can"+can.sort());
+
+    	   var cy1 = 0
+    	   var cy2 = 0
+    	   var cy3 = 0
+    	   var cy4 = 0
+    	   var cy5 = 0
+    	   var cy6 = 0
+  
+
+    	   function cannumber() {   
+	       for (i=0;i<can.length;i++){
+	    	   
+	    	   if(can[i].slice(3,5) <= 3){
+	    		   console.log("cy1="+can[i])
+	    		   cy1++
+	    	   }else if( 3 < can[i].slice(3,5) & can[i].slice(3,5) <= 9 ){
+	    		   console.log("cy2="+can[i].slice(3,5))
+	    		   cy2++
+	    	   }else if( 9 < can[i].slice(3,5) & can[i].slice(3,5) <= 15 ){
+	    		   console.log("cy3="+can[i].slice(3,5))
+	    		   cy3++
+	    	   }else if( 15 < can[i].slice(3,5) & can[i].slice(3,5) <= 21 ){
+	    		   console.log("cy4="+can[i].slice(3,5))
+	    		   cy4++
+	    	   }else if( 21 < can[i].slice(3,5) & can[i].slice(3,5) <= 28 ){
+	    		   console.log("cy5="+can[i].slice(3,5))
+	    		   cy5++
+	    	   }else {
+	    		   console.log("cy6="+can[i].slice(3,5))
+	    		   cy6++
+	    	   }
+	          }};
+	          
+	          cannumber()      
+	    	  cannum.push(cy1);
+	          cannum.push(cy2);
+	          cannum.push(cy3);
+	          cannum.push(cy4);
+	          cannum.push(cy5);
+	          cannum.push(cy6);
+	    	  console.log(cannum)	
+
+
+	       //battery
+	       battery = []
+	       function checkbattery() {
+		          for (i=0;i<classa.length;i++){
+		        	  if(classa[i] == "battery") {
+		        		  console.log(timea[i].slice(5,10));
+		        		  battery.push(timea[i].slice(5,10));
+		        	  };
+		          };
+		      }
+	       battery.sort()
+	       batterynum =[]
+	       checkbattery();
+	       
+	       console.log(battery.sort());
+
+    	   var bay1 = 0
+    	   var bay2 = 0
+    	   var bay3 = 0
+    	   var bay4 = 0
+    	   var bay5 = 0
+    	   var bay6 = 0
+  
+
+    	   function batterynumber() {   
+	       for (i=0;i<battery.length;i++){
+	    	   
+	    	   if(battery[i].slice(3,5) <= 3){
+	    		   console.log("bay1="+battery[i])
+	    		   bay1++
+	    	   }else if( 3 < battery[i].slice(3,5) & battery[i].slice(3,5) <= 9){
+	    		   console.log("bay2="+battery[i].slice(3,5))
+	    		   bay2++
+	    	   }else if( 9 < battery[i].slice(3,5) & battery[i].slice(3,5) <= 15 ){
+	    		   console.log("bay3="+battery[i].slice(3,5))
+	    		   bay3++
+	    	   }else if( 15 < battery[i].slice(3,5) & battery[i].slice(3,5) <= 21 ){
+	    		   console.log("bay4="+battery[i].slice(3,5))
+	    		   bay4++
+	    	   }else if( 24 < battery[i].slice(3,5) & battery[i].slice(3,5) <= 28 ){
+	    		   console.log("bay5="+battery[i].slice(3,5))
+	    		   bay5++
+	    	   }else {
+	    		   console.log("bay6="+battery[i].slice(3,5))
+	    		   bay6++
+	    	   }
+	          }};
+	          
+	          batterynumber()      
+	    	  batterynum.push(bay1);
+	          batterynum.push(bay2);
+	          batterynum.push(bay3);
+	          batterynum.push(bay4);
+	          batterynum.push(bay5);
+	          batterynum.push(bay6);
+	    	  console.log(batterynum)
+	    	  
+	       //paper
+	       paper = []
+	       function checkpaper() {
+		          for (i=0;i<classa.length;i++){
+		        	  if(classa[i] == "paper") {
+		        		  console.log(timea[i].slice(5,10));
+		        		  paper.push(timea[i].slice(5,10));
+		        	  };
+		          };
+		      }
+	       paper.sort()
+	       papernum =[]
+	       checkpaper();
+	       
+	       console.log(paper.sort());
+
+    	   var py1 = 0
+    	   var py2 = 0
+    	   var py3 = 0
+    	   var py4 = 0
+    	   var py5 = 0
+    	   var py6 = 0
+  
+
+    	   function papernumber() {   
+	       for (i=0;i<paper.length;i++){
+	    	   
+	    	   if(paper[i].slice(3,5) <= 3){
+	    		   console.log("py1="+paper[i])
+	    		   py1++
+	    	   }else if( 3 < paper[i].slice(3,5) & paper[i].slice(3,5) <= 9 ){
+	    		   console.log("py2="+paper[i].slice(3,5))
+	    		   py2++
+	    	   }else if( 9 < paper[i].slice(3,5) & paper[i].slice(3,5) <= 15 ){
+	    		   console.log("py3="+paper[i].slice(3,5))
+	    		   py3++
+	    	   }else if( 15 < paper[i].slice(3,5) & paper[i].slice(3,5) <= 21 ){
+	    		   console.log("py4="+paper[i].slice(3,5))
+	    		   py4++
+	    	   }else if( 21 < paper[i].slice(3,5) & paper[i].slice(3,5) <= 28 ){
+	    		   console.log("py4="+paper[i].slice(3,5))
+	    		   py5++
+	    	   }else {
+	    		   console.log("py5="+battery[i].slice(3,5))
+	    		   py6++
+	    	   }
+	          }};
+	          
+	          papernumber()      
+	    	  papernum.push(py1);
+	          papernum.push(py2);
+	          papernum.push(py3);
+	          papernum.push(py4);
+	          papernum.push(py5);
+	          papernum.push(py6);
+	    	  console.log(papernum)
+	    	  
+	       //trash
+	       trash = []
+	       function checktrash() {
+		          for (i=0;i<classa.length;i++){
+		        	  if(classa[i] == "trash") {
+		        		  console.log(timea[i].slice(5,10));
+		        		  trash.push(timea[i].slice(5,10));
+		        	  };
+		          };
+		      }
+	    	  trash.sort()
+	       trashnum =[]
+	       checktrash();
+	       
+	       console.log(trash.sort());
+
+    	   var ty1 = 0
+    	   var ty2 = 0
+    	   var ty3 = 0
+    	   var ty4 = 0
+    	   var ty5 = 0
+    	   var ty6 = 0
+  
+
+    	   function trashnumber() {   
+	       for (i=0;i<trash.length;i++){
+	    	   
+	    	   if(trash[i].slice(3,5) <= 3){
+	    		   console.log("ty1="+trash[i])
+	    		   ty1++
+	    	   }else if( 3 < trash[i].slice(3,5) & trash[i].slice(3,5) <= 9 ){
+	    		   console.log("ty2="+trash[i].slice(3,5))
+	    		   ty2++
+	    	   }else if( 9 < trash[i].slice(3,5) & trash[i].slice(3,5) <= 15 ){
+	    		   console.log("ty3="+trash[i].slice(3,5))
+	    		   ty3++
+	    	   }else if( 15 < trash[i].slice(3,5) & trash[i].slice(3,5) <= 21 ){
+	    		   console.log("ty4="+trash[i].slice(3,5))
+	    		   ty4++
+	    	   }else if( 21 < trash[i].slice(3,5) & trash[i].slice(3,5) <= 28 ){
+	    		   console.log("ty5="+trash[i].slice(3,5))
+	    		   ty5++
+	    	   }else {
+	    		   console.log("ty6="+trash[i].slice(3,5))
+	    		   ty6++
+	    	   }
+	          }};
+	          
+	          trashnumber()      
+	    	  trashnum.push(ty1);
+	          trashnum.push(ty2);
+	          trashnum.push(ty3);
+	          trashnum.push(ty4);
+	          trashnum.push(ty5);
+	          trashnum.push(ty6);
+	    	  console.log(trashnum)
+	    	  
 	var chart2 = new Chart(ctx2,
 			{
 				type : 'line',
 				data : {
-					labels : [ 'January', 'February', 'March', 'April',
-							'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+					labels : ["12/01", "12/6", "12-/12", "12/18", "12/24", "12-31"],
 					datasets : [ {
-						label : 'My First dataset',
+						label : '寶特瓶',
 						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
-								
-
 						],
 						borderColor : [ 'rgba(255,99,132,1)',
 								],
-						data : [ 10, 30, 39, 20, 25, 34, -10 , 20, 50, 40, 30, 10],
+						data : bottlenum,
+						fill : false,
+					},{
+						label : '鐵鋁罐', 
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor : [ 'rgba(54, 162, 235, 1)',
+								],
+						data : cannum,
+						fill : false,
+					},{
+						label : '電池', 
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor : [ 'rgba(75, 192, 192, 1)',
+								],
+						data : batterynum,
+						fill : false,
+					},{
+						label : '紙類', 
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor : [ 'rgba(255, 206, 86, 1)',
+								],
+						data : papernum,
+						fill : false,
+					},{
+						label : '一般垃圾',
+						backgroundColor : [ 'rgba(255, 99, 132, 0.2)',
+						],
+						borderColor : [ 'rgba(153, 102, 255, 1)',
+								],
+						data : trashnum,
 						fill : false,
 					} ]
 				},
 				options: {
 	                responsive: true,
 	                maintainAspectRatio: false,
-	            }
+	                scales: {
+	                    yAxes: [{
+	                        ticks: {
+	                            suggestedMin: 0,
+	                            suggestedMax: 10,
+	                            stepSize: 1
+	                        }
+	                    }]	                    
+	                }
+				}
 
 			});
 
