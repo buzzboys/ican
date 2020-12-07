@@ -1,6 +1,8 @@
 .asideMenu {
   width: 780px;
   height: 80px;
+  left:0;
+  right:auto;
   position: relative;
   padding: 0;
   -webkit-transition: all 0s;
@@ -64,3 +66,5 @@ table{
   width: 400px;
 
 }
+
+

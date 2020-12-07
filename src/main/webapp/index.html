@@ -91,9 +91,9 @@
 		raspi_ip3 = "192.168.137.10"
 		raspi_ip4 = "192.168.34.46"
 		
-		var wsUri = "ws://" + document.location.host + "/IcanContent"
+		var wsUri = "ws://" + "192.168.34.147:8080" + "/IcanContent"
 		if (document.location.pathname.indexOf("Ican") > 0) {
-			wsUri = "ws://" + document.location.host + "/Ican/IcanContent"
+			wsUri = "ws://" + "192.168.34.147:8080" + "/Ican/IcanContent"
 		}
 		
 		var ws = new WebSocket(wsUri)
@@ -107,14 +107,15 @@
 	            if (signal == 50) {
 	                $("#water1").addClass("water2");
 	                $("#water1").removeClass("water3");
-	                $(".water2").text("50%");
+	                $("#water1").text("50%");
 	            } else if (signal == 80) {
 	                $("#water1").removeClass("water2");
 	                $("#water1").addClass("water3");
-	                $(".water3").text("80%");
+	                $("#water1").text("80%");
 	            } else if (signal == 0) {
 	                $("#water1").removeClass("water3");
 	                $("#water1").removeClass("water2");
+	                $("#water1").text("");
 	            }			
 			}
 			
@@ -123,14 +124,15 @@
 	            if (signal == 50) {
 	                $("#water2").addClass("water2");
 	                $("#water2").removeClass("water3");
-	                $(".water2").text("50%");
+	                $("#water2").text("50%");
 	            } else if (signal == 80) {
 	                $("#water2").removeClass("water2");
 	                $("#water2").addClass("water3");
-	                $(".water3").text("80%");
+	                $("#water2").text("80%");
 	            } else if (signal == 0) {
 	                $("#water2").removeClass("water3");
 	                $("#water2").removeClass("water2");
+	                $("#water2").text("");
 	            }
 			}
         }

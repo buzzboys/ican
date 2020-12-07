@@ -1,0 +1,8 @@
+cd ican/darknet/
+
+python3 ledd.py
+python3 lcd_camera_yolo_mongo.py
+
+cd ican/ch15/raspi_src
+
+node watch_trash.js
