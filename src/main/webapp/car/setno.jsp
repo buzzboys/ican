@@ -70,7 +70,7 @@ pageEncoding="UTF-8" import="java.util.*,trashCar.bean.TrashCarRecordBean,trashC
 					time2.insert(2, ':');
 				%>
 				
-                	<label for="gt2" class="labels">預計抵達時間:<span id="pgt2"><%=time2%></span></label>
+                	<label for="gt2" id="lgt2" class="labels">預計抵達時間:<span id="pgt2"><%=time2%></span></label>
                 	<iframe id="gt2frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                     		marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getRelat2()%>,<%=trashcarrecord.getRelng2()%>">
                     </iframe>
@@ -86,7 +86,7 @@ pageEncoding="UTF-8" import="java.util.*,trashCar.bean.TrashCarRecordBean,trashC
 					StringBuffer time3 = new StringBuffer(trashcarrecord.getTime3());
 					time3.insert(2, ':');
 				%>
-                	<label for="gt3"  class="labels">預計抵達時間:<span id="pgt3"><%=time3%></span></label>
+                	<label for="gt3" id="lgt3" class="labels">預計抵達時間:<span id="pgt3"><%=time3%></span></label>
                 	<iframe id="gt3frame" width="360" height="240" frameborder="0" scrolling="no" marginheight="0"
                 			marginwidth="0" src="https://maps.google.com/?output=embed&amp;q=<%=trashcarrecord.getRelat3()%>,<%=trashcarrecord.getRelng3()%>">
                 	</iframe>
@@ -96,7 +96,7 @@ pageEncoding="UTF-8" import="java.util.*,trashCar.bean.TrashCarRecordBean,trashC
 	               	<input type="hidden" name="CarTimeStart3" value="<%=trashcarrecord.getTime3()%>">
                 </div> 
                 <div class="setyessubmit">                    
-                <input type="submit" class="fbutton"  value="設定完成"> 
+                <input type="submit" class="fbutton" value="設定完成"> 
                 </div>
             </fieldset>
             

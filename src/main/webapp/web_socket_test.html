@@ -5,8 +5,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input id="data" type="text">
-	<input id="submit" type="button" value="傳送">
+	trash: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input id="trash" type="text">
+	<input id="send_trash" type="button" value="傳送">
+	<br>
+	recycled: <input id="recycled" type="text">
+	<input id="send_recycled" type="button" value="傳送">
 </body>
 <script>
 
@@ -22,10 +25,15 @@
 		console.log("envent data: " + event.data)
 	}
 	
-	document.querySelector("#submit").addEventListener("click", function () {
-		data = document.querySelector("#data").value
+	document.querySelector("#send_trash").addEventListener("click", function () {
+		data = document.querySelector("#trash").value
 		ws.send(JSON.stringify({ 'trash': data }))
 	})
 
+	document.querySelector("#send_recycled").addEventListener("click", function () {
+		data = document.querySelector("#recycled").value
+		ws.send(JSON.stringify({ 'recycled': data }))
+	})
+	
 </script>
 </html>

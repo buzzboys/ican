@@ -96,7 +96,7 @@ pageEncoding="UTF-8" import="java.util.*,trashCar.bean.TrashCarRecordBean,trashC
                     
                 </div>
                 <div class="setyessubmit">
- 				<input type="submit" class="fbutton"   value="設定完成">
+ 				<input type="submit" class="fbutton" value="設定完成">
  				</div>           
             </fieldset>
 
